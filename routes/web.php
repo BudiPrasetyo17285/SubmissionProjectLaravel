@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\MataKuliahController;
+use App\Http\Controllers\BukuController;
 
 Route::get('/', function () { 
     return view('welcome'); 
@@ -116,3 +117,13 @@ Route::post('/matakuliah', [MataKuliahController::class, 'store'])
 
 Route::get('/matakuliah/{id}', [MataKuliahController::class, 'show'])
     ->name('matakuliah.show');
+
+// UTS
+Route::get('/buku', [BukuController::class, 'index'])
+    ->name('buku.index');
+
+Route::get('/buku/create', [BukuController::class, 'create'])
+    ->name('buku.create');
+
+Route::post('/buku', [BukuController::class, 'store'])
+    ->name('buku.store');
